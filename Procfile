@@ -1,0 +1,1 @@
+web: maia_guide.wsgi
