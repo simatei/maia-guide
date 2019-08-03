@@ -1,0 +1,24 @@
+{% extends "all_shows/base.html" %}
+
+{% block content %}
+    
+<div class="container">
+    {% for trend in trending  %}
+
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-2">
+            <img src="http://image.tmdb.org/t/p/w185/{{trend.poster_path}}" alt="" class="img-thumbnail">
+        </div>
+        
+        <div class="col-md-6 justify-content-md-center">
+            <h3>{{trend.title}}</h3>
+            <p>{{trend.overview}}</p>
+        </div>
+        
+    </div>
+    <br>
+    {% endfor %}  
+
+</div>
+
+{% endblock content %}
