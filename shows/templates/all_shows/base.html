@@ -1,0 +1,40 @@
+{% load bootstrap4 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% if title %}
+    <title>Maia - {{ title }}</title>
+    {% else %}
+    <title> Maia_Guide | movies & TV shows guide </title>
+    {% endif %}
+
+    {% block styles %}
+        {% bootstrap_css%}
+    {% endblock %}
+
+</head>
+<body class="p-3 mb-2 bg-dark text-white" >
+    {% include 'navbar.html' %}
+    <br>
+    {% block content %}
+
+    
+
+    {% endblock %}
+
+    {% block script %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        {% bootstrap_javascript %}
+    {% endblock %}
+
+    <div>
+        <p>Robert Simatei&copy;2019 </p>
+    </div>
+</body>
+</html>
