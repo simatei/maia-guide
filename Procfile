@@ -1,1 +1,1 @@
-web: maia_guide.wsgi
+web: gunicorn maia_guide.wsgi
