@@ -1,0 +1,31 @@
+{% extends "all_shows/base.html" %}
+{% load bootstrap4 %}
+{% include "navbar.html" %}
+
+{% block content %}
+<div class="container">
+    {% if results %}
+      
+    {% for movie in results  %}
+
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-2">
+            <img src="http://image.tmdb.org/t/p/w185/{{movie.poster_path}}" alt="" class="img-thumbnail">
+        </div>
+        
+        <div class="col-md-6 justify-content-md-center">
+            <h3>{{movie.title}}</h3>
+            <p>{{movie.overview}}</p>
+            <a class="btn btn-primary" href="{% url 'focus' movie.id %}" role="button">Trailer</a>
+
+        </div>
+        
+    </div>
+    <br>
+    {% endfor %}  
+    {% else %}
+        <h1>No movie with the title {{query}} found. </h1>
+    {% endif %}
+
+</div>
+{% endblock content %}

@@ -45,4 +45,11 @@ def view_trailers(request, id):
         if result['id']['kind'] == 'youtube#video':
             video_id = result['id']['videoId']
     return render(request, 'focus.html', {'movie': movie, 'videoId': video_id})
+
+def search_movie(request):
+    search_query = request.GET.get('search')
+    search = tmdb.Search()
+    response = search.movie(query=search_query)
+    results = search.results
     
+    return render( request, 'search.html', {'results':results, 'query':search_query})
