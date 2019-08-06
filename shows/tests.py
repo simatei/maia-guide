@@ -17,3 +17,7 @@ class TestUrls(TestCase):
     def test_play_trailer(self):
         response = self.client.get('/focus/157336/') # Hardcode videoId for movie 'Interstellar'
         self.assertEqual(response.status_code, 200)
+
+    def test_search(self):
+        response = self.client.get('/search/?search=interstellar') # hardcode search item
+        self.assertEqual(response.status_code, 200)
