@@ -13,12 +13,12 @@ yt_api_version = config('YT_API_VERSION')
 tmdb.API_KEY = config('MD_KEY')
 discover = config('discover')
 discover_sort = config('discover_sort')
-trending = config('trending')
 discover_tv = config('discover_tv')
 
 
 # Homepage view
 def home_view(request):
+    trending = config('trending')
     response = requests.get(trending + api_key)
     # store parsed json response for all trending shows and movies
     trending_all = response.json()
