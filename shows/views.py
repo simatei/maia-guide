@@ -34,6 +34,20 @@ def available_movies(request):
     return render(request, 'all_shows/movies.html', {'movies': movies})
 
 
+# Error 404 handler view:
+def handler404(request, exception, template_name='404.html'):
+    response = render_to_response('404.html')
+    response.status_code = 404
+    return response
+
+
+# Error 500 handler:
+def handler500(request, exception, template_name='500.html'):
+    response = render_to_response('500.html')
+    response.status_code = 500
+    return response
+
+
 # View to show available shows
 def available_shows(request):
     response = requests.get(discover_tv + api_key + '&sort_by=popularity.desc')
